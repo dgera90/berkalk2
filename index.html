@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Bérkalkulátor</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 400px; margin: 20px auto; padding: 20px; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; margin-top: 20px; background-color: #0078D4; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #005a9e; }
+        #eredmeny { margin-top: 20px; padding: 15px; background-color: #f3f2f1; display: none; }
+    </style>
+</head>
+<body>
+
+    <h2>Bérkalkulátor</h2>
+
+    <label>Órabér (Ft):</label>
+    <input type="number" id="oraber" value="0">
+
+    <label>Melyik hónapban vagyunk?</label>
+    <select id="honap">
+        <option value="1">Január</option>
+        <option value="2">Február</option>
+        <option value="3">Március</option>
+        <option value="4">Április</option>
+        <option value="5">Május</option>
+        <option value="6">Június</option>
+        <option value="7">Július</option>
+        <option value="8">Augusztus</option>
+        <option value="9">Szeptember</option>
+        <option value="10">Október</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+    </select>
+
+    <label>Délutános műszakok száma a hónapban:</label>
+    <input type="number" id="delutanos_muszak" value="0" min="0">
+
+    <label>Hétköznapi túlóra (óra):</label>
+    <input type="number" id="hetkoznapi_tulora" value="0" min="0">
+
+    <label>Hétvégi túlóra (óra):</label>
+    <input type="number" id="hetvegi_tulora" value="0" min="0">
+
+    <label>Gyermekek utáni adókedvezmény (gyermekek száma):</label>
+    <input type="number" id="gyerekek_szama" value="0" min="0">
+
+    <div style="display: flex; gap: 10px; margin-top: 20px;">
+        <button onclick="kalkulacio()" style="flex: 2;">Számolás</button>
+        <button onclick="torles()" style="flex: 1; background-color: #dc3545;">Törlés</button>
+    </div>
+
+    <div id="eredmeny">
+        <p><strong>Bruttó bér:</strong> <span id="brutto"></span> Ft</p>
+        <p><strong>Nettó bér:</strong> <span id="netto"></span> Ft</p>
+        
+        <button onclick="ujSzamolas()" style="background-color: #6c757d; margin-top: 15px;">Új számolás</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
