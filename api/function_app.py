@@ -45,11 +45,11 @@ def kalkulal(req: func.HttpRequest) -> func.HttpResponse:
         # 4. Családi adókedvezmény (a fizetendő SZJA-t és TB-t csökkenti)
         kedvezmeny_keret = 0
         if gyerek == 1:
-            kedvezmeny_keret = 10000
+            kedvezmeny_keret = 20000
         elif gyerek == 2:
-            kedvezmeny_keret = 40000
+            kedvezmeny_keret = 80000
         elif gyerek >= 3:
-            kedvezmeny_keret = gyerek * 33000
+            kedvezmeny_keret = gyerek * 100000
             
         osszes_ado = szja + tb
         fizetendo_ado = max(0, osszes_ado - kedvezmeny_keret)
